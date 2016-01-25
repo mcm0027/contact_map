@@ -2,6 +2,8 @@
 
 var myApp = angular.module("myApp", []);
 
+
+
 myApp.factory('lukeContacts', function () {
 
   var service = {};
@@ -12,13 +14,13 @@ myApp.factory('lukeContacts', function () {
     1 : "April 16th 2016 8:30 pm",
     2 : "December 12th 2015 8:00 pm"
   };
-  
+
   var convertMeetings = {
     0 : moment.tz("2015-04-22 10:00", userZone),
     1 : moment.tz("2016-04-16 20:30", userZone),
     2 : moment.tz("2015-12-12 20:00", userZone)
   };
-  
+
 
 
   var timeZones = {
@@ -81,9 +83,9 @@ myApp.factory('lindaContacts', function () {
 
   console.log(convertMeetings[1].clone().tz(timeZones[1]).format());
   console.log(convertMeetings[1].format());
-  
+
   console.log(convertMeetings[0], convertMeetings[1], convertMeetings[2])
-  
+
   console.log(userZone);
   service.set = function () {
     service = {
@@ -136,7 +138,7 @@ myApp.controller('mapController', ['$scope', 'lukeContacts', 'lindaContacts', 'c
   $scope.size = 0;
   $scope.markers = [];
   $scope.infoWindows = [];
-  $scope.time = [];  
+  $scope.time = [];
   $scope.map;
   $scope.mapUpdate = function () {
     var myCenter = new google.maps.LatLng(0, 0);
@@ -169,21 +171,21 @@ console.log($scope.contact[a]);
               lat: $scope.contact[a].lat,
               lng: $scope.contact[b].lng
             });
-            
-            
+
+
             function addMarker(location) {
-           
+
               $scope.marker = new google.maps.Marker({
                 position: location,
                 map: $scope.map,
                 title: $scope.user[i].name
               });
-              
+
               $scope.infoWindow = new google.maps.InfoWindow({
                 content: content,
-                position: location 
+                position: location
               });
-              
+
               $scope.infoWindow.open($scope.map, $scope.marker);
               $scope.infoWindows.push($scope.infoWindow);
               $scope.markers.push($scope.marker);
@@ -200,7 +202,7 @@ console.log($scope.contact[a]);
         for (var i = 0; i < $scope.markers.length; i++) {
           $scope.markers[i].setMap(null);
           $scope.infoWindows[i].close();
-          
+
         };
         $scope.markers.length = 0;
         $scope.infoWindows.length = 0;
