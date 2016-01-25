@@ -1,0 +1,21 @@
+{
+  "name": "contact_map",
+  "homepage": "https://github.com/mcm0027/contactmap",
+  "authors": [
+    "Matt Morris <mcm0027@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-timezone-selector": "~1.4.3"
+  }
+}

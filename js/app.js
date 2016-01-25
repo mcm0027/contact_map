@@ -1,8 +1,31 @@
 'use strict';
 
-var myApp = angular.module("myApp", []);
+var myApp = angular.module("myApp", ['angular-timezone-selector', 'ui.router']);
 
+myApp
+.config([
+'$stateProvider',
+'$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
 
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: '/home.html'
+    })
+    .state('mapView', {
+      url: '/mapView',
+      templateUrl: '/mapView.html',
+      controller: 'MapView'
+    })
+    .state('addContacts', {
+      url: '/addContacts',
+      templateUrl: '/addContacts.html',
+      // controller: 'AddContacts'
+    });
+
+  $urlRouterProvider.otherwise('home');
+}]);
 
 myApp.factory('lukeContacts', function () {
 
@@ -126,12 +149,18 @@ myApp.factory('coordinateSearch', ['$http', '$q', function ($http, $q) {
         deferred.resolve(data);
       });
     return deferred.promise;
-  }
+  };
   return service;
 }]);
 
+myApp.controller('MapView', ['$scope', 'pushContact', function($scope, pushContact) {
+  $scope.addContact = function() {
+    pushContact.set();
+  }
 
-myApp.controller('mapController', ['$scope', 'lukeContacts', 'lindaContacts', 'coordinateSearch', function ($scope, lukeContacts, lindaContacts, coordinateSearch) {
+}]);
+
+myApp.controller('MapView', ['$scope', 'lukeContacts', 'lindaContacts', 'coordinateSearch', function ($scope, lukeContacts, lindaContacts, coordinateSearch) {
 
   $scope.results = [];
   $scope.contact = [];
@@ -234,7 +263,7 @@ console.log($scope.contact[a]);
       $scope.resultsClick();
     }, 100);
     return $scope.results;
-  }
+  };
   $scope.resultsClick = function () {
     $scope.contact = [];
     for (var i = 0; i < $scope.size; i++) {
@@ -248,6 +277,6 @@ console.log($scope.contact[a]);
     };
     $scope.show();
     return $scope.contact;
-  }
+  };
 
       }]);
