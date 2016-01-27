@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
     root to: 'application#angular'
-    
+
+    resources :contact
+    resources :meetings
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

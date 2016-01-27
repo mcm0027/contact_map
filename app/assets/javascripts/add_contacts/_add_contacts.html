@@ -41,9 +41,10 @@
         <tr>
           <th>Name</th>
           <th>Location</th>
-          <th>Contact's Time Now</th>
+          <th>Contact's Time Zone</th>
           <th>Next Meeting My Time</th>
           <th>Next Meeting Contact's Time</th>
+          <th>Delete Contact</th>
         </tr>
       </thead>
       <tbody>
@@ -53,7 +54,7 @@
           <td>{{contact.timeZone}}</td>
           <td>{{contact.meetingTime}}</td>
           <td>{{contact.contactMeetingTime}}</td>
-
+          <td><button class="btn btn-info ng-click="deleteContact(contact.name)">Delete Contact</button> </td>
         </tr>
       </tbody>
     </table>

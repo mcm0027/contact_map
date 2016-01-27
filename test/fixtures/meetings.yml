@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meetingTime: MyString
+  contactMeetingTime: MyString
+
+two:
+  meetingTime: MyString
+  contactMeetingTime: MyString
