@@ -1,28 +1,4 @@
 'use strict';
 
-var myApp = angular.module("myApp", ['angular-timezone-selector', 'ui.router', 'templates']);
+var myApp = angular.module("myApp", ['myApp.AddContacts', 'angular-timezone-selector', 'ui.router', 'templates']);
 
-myApp
-.config([
-'$stateProvider',
-'$urlRouterProvider',
-function($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'home/_home.html'
-    })
-    .state('mapView', {
-      url: '/mapView',
-      templateUrl: 'map_view/_map_view.html',
-      controller: 'MapView'
-    })
-    .state('addContacts', {
-      url: '/addContacts',
-      templateUrl: 'add_contacts/_add_contacts.html',
-      // controller: 'AddContacts'
-    });
-
-  $urlRouterProvider.otherwise('home');
-}]);
