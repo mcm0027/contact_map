@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module("myApp", ['angular-timezone-selector', 'ui.router']);
+var myApp = angular.module("myApp", ['angular-timezone-selector', 'ui.router', 'templates']);
 
 myApp
 .config([

@@ -1,5 +1,6 @@
 //= require jquery
 //= require angular
+//= require angular-rails-templates
 //= require underscore
 //= require angular-ui-router
 //= require moment
