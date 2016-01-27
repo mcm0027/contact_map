@@ -11,16 +11,16 @@ function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: '/home.html'
+      templateUrl: 'home/_home.html'
     })
     .state('mapView', {
       url: '/mapView',
-      templateUrl: '/mapView.html',
+      templateUrl: 'map_view/_map_view.html',
       controller: 'MapView'
     })
     .state('addContacts', {
       url: '/addContacts',
-      templateUrl: '/addContacts.html',
+      templateUrl: 'add_contacts/_add_contacts.html',
       // controller: 'AddContacts'
     });
 
@@ -104,12 +104,6 @@ myApp.factory('lindaContacts', function () {
     2 : "Europe/Berlin"
   };
 
-  console.log(convertMeetings[1].clone().tz(timeZones[1]).format());
-  console.log(convertMeetings[1].format());
-
-  console.log(convertMeetings[0], convertMeetings[1], convertMeetings[2])
-
-  console.log(userZone);
   service.set = function () {
     service = {
           [0]: {
@@ -153,13 +147,13 @@ myApp.factory('coordinateSearch', ['$http', '$q', function ($http, $q) {
   return service;
 }]);
 
-myApp.controller('MapView', ['$scope', 'pushContact', function($scope, pushContact) {
-  $scope.contactList = [];
-  $scope.addContact = function(name, location, timezone) {
-    $scope.contactList.push(pushContact.set(name, location, timezone));
-  };
+// myApp.controller('MapView', ['$scope', 'pushContact', function($scope, pushContact) {
+//   $scope.contactList = [];
+//   $scope.addContact = function(name, location, timezone) {
+//     $scope.contactList.push(pushContact.set(name, location, timezone));
+//   };
 
-}]);
+// }]);
 
 myApp.controller('MapView', ['$scope', 'lukeContacts', 'lindaContacts', 'coordinateSearch', function ($scope, lukeContacts, lindaContacts, coordinateSearch) {
 

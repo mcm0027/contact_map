@@ -1,0 +1,32 @@
+<section class="row">
+  <div class="col-md-12">
+    <form ng-submit="addContact()">
+      <div class="col-md-4">
+        <h3>Name</h3>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Jane Jones"
+          ng-model="name"></input>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Location</h3>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Dallas, TX"
+          ng-model="location"></input>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Timezone</h3>
+        <timezone-selector ng-model="timezone">
+      </div>
+      <div class="col-md-4 pull-left"
+            style="margin-top:30px;">
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+      </div>
+    </form>
+  </div>
+</section>

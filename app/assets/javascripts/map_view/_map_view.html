@@ -1,0 +1,34 @@
+<section class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Contact's Time Now</th>
+          <th>Next Meeting My Time</th>
+          <th>Next Meeting Contact's Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="result in user | orderBy: 'name'">
+          <td><a href="">{{result.name}}</a></td>
+          <td>{{result.location}}</td>
+          <td>{{result.time}}</td>
+          <td>{{result.meetingTime}}</td>
+          <td>{{result.contactMeetingTime}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div class="buttons-container">
+      <button ng-click="setUser('Luke')">Luke Cage</button>
+      <button ng-click="setUser('Linda')">Linda Carter</button>
+    </div>
+  </div>
+  <section class="row">
+    <div class="col-md-12">
+      <div id="googleMap" class="img-responsive center-block" style="width:90%;height:500px;"></div>
+    </div>
+  </section>
+</section>
