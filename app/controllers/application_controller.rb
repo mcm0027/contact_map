@@ -5,4 +5,6 @@ class ApplicationController < ActionController::Base
     render 'layouts/application'
   end
   protect_from_forgery with: :exception
+
+  respond_to :json
 end

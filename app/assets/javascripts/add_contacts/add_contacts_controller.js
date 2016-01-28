@@ -13,8 +13,14 @@ var contactApp = angular.module('myApp.AddContacts',['ui.router'])
       });
   };
 
+  resolve: {
+    contactPromise: ['contacts', function(contacts){
+      return contacts.getAll();
+    }];
+  }
+
   $scope.deleteContact = function(name) {
-    
+
   }
 
 }]);
