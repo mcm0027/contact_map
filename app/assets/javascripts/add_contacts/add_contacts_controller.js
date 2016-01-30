@@ -1,12 +1,12 @@
 var contactApp = angular.module('myApp.AddContacts',['ui.router'])
 .controller('AddContacts', ['$scope', 'contacts', '$stateParams', function ($scope, contacts, $stateParams) {
 
-
-
   $scope.contacts = contacts.contacts;
 
+  contacts.getAll();
+
   $scope.addContact = function() {
-      $scope.contacts.push({
+      contacts.create({
         name: $scope.name,
         location: $scope.location,
         timeZone: $scope.timezone
@@ -19,8 +19,8 @@ var contactApp = angular.module('myApp.AddContacts',['ui.router'])
     }];
   }
 
-  $scope.deleteContact = function(name) {
-
-  }
+  $scope.deleteContact = function(contact_id) {
+    contacts.destroy(contact_id);
+  };
 
 }]);

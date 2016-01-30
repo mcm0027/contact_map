@@ -1,19 +1,30 @@
-contactApp.factory('contacts', ['$http', function($http) {
-  var o = {
+contactApp.factory('contacts', ['$http', '$rootScope', function($http, $rootScope) {
+
+  $rootScope.o = {
     contacts: []
   };
 
-  o.getAll = function() {
+  $rootScope.o.getAll = function() {
     return $http.get('/contact.json').success(function(data){
-      angular.copy(data, o.contacts);
+      angular.copy(data, $rootScope.o.contacts);
     });
   };
 
-  o.create = function(contact) {
+  $rootScope.o.create = function(contact) {
   return $http.post('/contact.json', contact).success(function(data){
-    o.contacts.push(data);
-  });
-};
+    $rootScope.o.contacts.push(data);
+    });
+  };
 
-  return o;
+  $rootScope.o.destroy = function(contact_id) {
+    return $http.delete('/contact/' + contact_id).success(function(data){
+      console.log(data);
+        $http.get('/contact.json').success(function(data){
+        angular.copy(data, $rootScope.o.contacts);
+  //   o.contacts.push(data);
+      });
+    });
+  };
+
+  return $rootScope.o;
 }]);

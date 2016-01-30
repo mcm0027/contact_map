@@ -17,6 +17,9 @@ gem 'sdoc', '~> 0.4.0',        group: :doc
 # stores angular templates saved in js folder to $templateCache
 gem 'angular-rails-templates'
 
+# Send xsrf token to Agnular
+gem 'angular_rails_csrf'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
