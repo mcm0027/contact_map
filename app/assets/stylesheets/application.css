@@ -13,6 +13,7 @@
  *= require angular-timezone-selector
  *= require bootstrap/dist/css/bootstrap
  *= require chosen
+ *= require angular-material
  *= require_tree .
  *= require_self
  */

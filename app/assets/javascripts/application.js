@@ -10,5 +10,8 @@
 //= require jstzdetect
 //= require lodash
 //= require angular-timezone-selector
-
+//= require angular-messages
+//= require angular-animate
+//= require angular-aria
+//= require angular-material
 //= require_tree .
