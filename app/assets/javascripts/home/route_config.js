@@ -17,7 +17,7 @@ function($stateProvider, $urlRouterProvider) {
     .state('addContacts', {
       url: '/addContacts',
       templateUrl: 'add_contacts/_add_contacts.html',
-      controller: 'AddContacts'
+      controller: 'AddContactsController'
     });
 
   $urlRouterProvider.otherwise('home');
